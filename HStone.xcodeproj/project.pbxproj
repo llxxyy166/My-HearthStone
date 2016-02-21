@@ -7,25 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		391EF4FD1C76470B00917972 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 391EF4FC1C76470B00917972 /* UIImage+animatedGIF.m */; };
+		391EF4FF1C76473A00917972 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 391EF4FE1C76473A00917972 /* ImageIO.framework */; };
+		391EF5011C7647B500917972 /* OpenPakageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391EF5001C7647B500917972 /* OpenPakageViewController.swift */; };
 		3964AD661C71549D0058E302 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964AD651C71549D0058E302 /* AppDelegate.swift */; };
-		3964AD681C71549E0058E302 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964AD671C71549E0058E302 /* ViewController.swift */; };
 		3964AD6B1C71549E0058E302 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3964AD691C71549E0058E302 /* Main.storyboard */; };
 		3964AD6D1C71549E0058E302 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3964AD6C1C71549E0058E302 /* Assets.xcassets */; };
 		3964AD701C71549E0058E302 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3964AD6E1C71549E0058E302 /* LaunchScreen.storyboard */; };
+		3964AD781C7154EF0058E302 /* HearthStoneAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964AD771C7154EF0058E302 /* HearthStoneAPI.swift */; };
+		3964AD7E1C715EF40058E302 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964AD7D1C715EF40058E302 /* CardDetailViewController.swift */; };
+		3964AD801C7179DE0058E302 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3964AD7F1C7179DE0058E302 /* Default-568h@2x.png */; };
+		39FA46571C78FC62006C1936 /* DataParsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA46561C78FC62006C1936 /* DataParsingTest.swift */; };
+		39FA46611C78FF6B006C1936 /* ParsingCardsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA46601C78FF6B006C1936 /* ParsingCardsData.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		39FA46591C78FC62006C1936 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3964AD5A1C71549D0058E302 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3964AD611C71549D0058E302;
+			remoteInfo = HStone;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		391EF4FA1C76470A00917972 /* HStone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HStone-Bridging-Header.h"; sourceTree = "<group>"; };
+		391EF4FB1C76470B00917972 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		391EF4FC1C76470B00917972 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
+		391EF4FE1C76473A00917972 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		391EF5001C7647B500917972 /* OpenPakageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenPakageViewController.swift; sourceTree = "<group>"; };
 		3964AD621C71549D0058E302 /* HStone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HStone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3964AD651C71549D0058E302 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3964AD671C71549E0058E302 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3964AD6A1C71549E0058E302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3964AD6C1C71549E0058E302 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3964AD6F1C71549E0058E302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3964AD711C71549E0058E302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3964AD771C7154EF0058E302 /* HearthStoneAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearthStoneAPI.swift; sourceTree = "<group>"; };
+		3964AD7D1C715EF40058E302 /* CardDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
+		3964AD7F1C7179DE0058E302 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		39FA46541C78FC62006C1936 /* DataParsingTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataParsingTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39FA46561C78FC62006C1936 /* DataParsingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParsingTest.swift; sourceTree = "<group>"; };
+		39FA46581C78FC62006C1936 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39FA46601C78FF6B006C1936 /* ParsingCardsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsingCardsData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3964AD5F1C71549D0058E302 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				391EF4FF1C76473A00917972 /* ImageIO.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39FA46511C78FC62006C1936 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,7 +74,10 @@
 		3964AD591C71549D0058E302 = {
 			isa = PBXGroup;
 			children = (
+				391EF4FE1C76473A00917972 /* ImageIO.framework */,
+				3964AD7F1C7179DE0058E302 /* Default-568h@2x.png */,
 				3964AD641C71549D0058E302 /* HStone */,
+				39FA46551C78FC62006C1936 /* DataParsingTest */,
 				3964AD631C71549D0058E302 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				3964AD621C71549D0058E302 /* HStone.app */,
+				39FA46541C78FC62006C1936 /* DataParsingTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,14 +94,29 @@
 		3964AD641C71549D0058E302 /* HStone */ = {
 			isa = PBXGroup;
 			children = (
+				391EF4FB1C76470B00917972 /* UIImage+animatedGIF.h */,
+				391EF4FC1C76470B00917972 /* UIImage+animatedGIF.m */,
 				3964AD651C71549D0058E302 /* AppDelegate.swift */,
-				3964AD671C71549E0058E302 /* ViewController.swift */,
+				3964AD771C7154EF0058E302 /* HearthStoneAPI.swift */,
+				3964AD7D1C715EF40058E302 /* CardDetailViewController.swift */,
+				391EF5001C7647B500917972 /* OpenPakageViewController.swift */,
+				39FA46601C78FF6B006C1936 /* ParsingCardsData.swift */,
 				3964AD691C71549E0058E302 /* Main.storyboard */,
 				3964AD6C1C71549E0058E302 /* Assets.xcassets */,
 				3964AD6E1C71549E0058E302 /* LaunchScreen.storyboard */,
 				3964AD711C71549E0058E302 /* Info.plist */,
+				391EF4FA1C76470A00917972 /* HStone-Bridging-Header.h */,
 			);
 			path = HStone;
+			sourceTree = "<group>";
+		};
+		39FA46551C78FC62006C1936 /* DataParsingTest */ = {
+			isa = PBXGroup;
+			children = (
+				39FA46561C78FC62006C1936 /* DataParsingTest.swift */,
+				39FA46581C78FC62006C1936 /* Info.plist */,
+			);
+			path = DataParsingTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,6 +139,24 @@
 			productReference = 3964AD621C71549D0058E302 /* HStone.app */;
 			productType = "com.apple.product-type.application";
 		};
+		39FA46531C78FC62006C1936 /* DataParsingTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39FA465B1C78FC62006C1936 /* Build configuration list for PBXNativeTarget "DataParsingTest" */;
+			buildPhases = (
+				39FA46501C78FC62006C1936 /* Sources */,
+				39FA46511C78FC62006C1936 /* Frameworks */,
+				39FA46521C78FC62006C1936 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39FA465A1C78FC62006C1936 /* PBXTargetDependency */,
+			);
+			name = DataParsingTest;
+			productName = DataParsingTest;
+			productReference = 39FA46541C78FC62006C1936 /* DataParsingTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -96,6 +169,10 @@
 				TargetAttributes = {
 					3964AD611C71549D0058E302 = {
 						CreatedOnToolsVersion = 7.2.1;
+					};
+					39FA46531C78FC62006C1936 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 3964AD611C71549D0058E302;
 					};
 				};
 			};
@@ -113,6 +190,7 @@
 			projectRoot = "";
 			targets = (
 				3964AD611C71549D0058E302 /* HStone */,
+				39FA46531C78FC62006C1936 /* DataParsingTest */,
 			);
 		};
 /* End PBXProject section */
@@ -123,8 +201,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				3964AD701C71549E0058E302 /* LaunchScreen.storyboard in Resources */,
+				3964AD801C7179DE0058E302 /* Default-568h@2x.png in Resources */,
 				3964AD6D1C71549E0058E302 /* Assets.xcassets in Resources */,
 				3964AD6B1C71549E0058E302 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39FA46521C78FC62006C1936 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,12 +221,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3964AD681C71549E0058E302 /* ViewController.swift in Sources */,
+				39FA46611C78FF6B006C1936 /* ParsingCardsData.swift in Sources */,
+				3964AD781C7154EF0058E302 /* HearthStoneAPI.swift in Sources */,
+				391EF4FD1C76470B00917972 /* UIImage+animatedGIF.m in Sources */,
+				3964AD7E1C715EF40058E302 /* CardDetailViewController.swift in Sources */,
+				391EF5011C7647B500917972 /* OpenPakageViewController.swift in Sources */,
 				3964AD661C71549D0058E302 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		39FA46501C78FC62006C1936 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39FA46571C78FC62006C1936 /* DataParsingTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		39FA465A1C78FC62006C1936 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3964AD611C71549D0058E302 /* HStone */;
+			targetProxy = 39FA46591C78FC62006C1936 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3964AD691C71549E0058E302 /* Main.storyboard */ = {
@@ -249,10 +355,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HStone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lei.HStone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HStone/HStone-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -260,10 +369,38 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HStone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lei.HStone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HStone/HStone-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		39FA465C1C78FC62006C1936 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEFINES_MODULE = YES;
+				INFOPLIST_FILE = DataParsingTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lei.DataParsingTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HStone.app/HStone";
+			};
+			name = Debug;
+		};
+		39FA465D1C78FC62006C1936 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEFINES_MODULE = YES;
+				INFOPLIST_FILE = DataParsingTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lei.DataParsingTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HStone.app/HStone";
 			};
 			name = Release;
 		};
@@ -284,6 +421,15 @@
 			buildConfigurations = (
 				3964AD751C71549E0058E302 /* Debug */,
 				3964AD761C71549E0058E302 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39FA465B1C78FC62006C1936 /* Build configuration list for PBXNativeTarget "DataParsingTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39FA465C1C78FC62006C1936 /* Debug */,
+				39FA465D1C78FC62006C1936 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
