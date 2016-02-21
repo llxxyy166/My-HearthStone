@@ -11,12 +11,47 @@ import UIKit
 class OpenPakageViewController: UIViewController {
     @IBOutlet weak var packageHolder: UIView!
     @IBOutlet weak var dragDestination: UIView!
-    @IBOutlet var card: [UIView]!
+    @IBOutlet var card: NSArray!
+    @IBOutlet weak var menuBar: UIView!
+    @IBOutlet weak var menuBarHeight: NSLayoutConstraint!
 
+    @IBOutlet weak var packLabel: UILabel!
+    var packStats: [Int] = [0, 0, 0] {
+        didSet {
+            packLabel.text = String(format: "Classic: %d\nGVG: %d\nTournament: %d", packStats[0], packStats[1], packStats[2])
+        }
+    }
+    
+    
     var cardsGot: [(NSDictionary, Bool)] = []
     var imageCache: [UIImage] = []
     var imageDisplayViews: [UIImageView] = []
-    //collectible
+    
+    
+    var cardSet: String? {
+        didSet {
+            for view in imageDisplayViews {
+                view.removeFromSuperview()
+            }
+            imageDisplayViews.removeAll()
+            imageCache.removeAll()
+            cardsGot.removeAll()
+            if (self.view.gestureRecognizers?.count == 2) {
+                self.view.gestureRecognizers!.removeLast()
+            }
+            self.view.gestureRecognizers![0].enabled = true
+            switch (cardSet!) {
+            case(ParsingCardsData.GVG): packageHolderImageView?.image = UIImage(named: "gvgPack")
+            case(ParsingCardsData.TOURNAMENT): packageHolderImageView?.image = UIImage(named: "touPack")
+            default: packageHolderImageView?.image = UIImage(named: "classicPack")
+            }
+        }
+    }
+    var packageHolderImageView: UIImageView? {
+        didSet {
+            packageHolder.setNeedsDisplay()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         let gesture = UIPanGestureRecognizer(target: self, action: Selector("drag:"))
@@ -24,7 +59,11 @@ class OpenPakageViewController: UIViewController {
         let frame = self.packageHolder.frame
         let imageView = UIImageView(frame: frame)
         imageView.image = UIImage(named: "classicPack")
+        imageView.layer.cornerRadius = 0.1 * imageView.frame.size.width
+        imageView.layer.masksToBounds = true
         self.view.addSubview(imageView)
+        packageHolderImageView = imageView
+        cardSet = ParsingCardsData.CLASSIC
         // Do any additional setup after loading the view.
     }
 
@@ -42,7 +81,7 @@ class OpenPakageViewController: UIViewController {
                 var frame = self.packageHolder.frame
                 frame.origin = location
                 let imageView = UIImageView(frame: frame)
-                imageView.image = UIImage(named: "classicPack")
+                imageView.image = packageHolderImageView?.image
                 self.view.addSubview(imageView)
                 dragingImageView = imageView
             }
@@ -52,11 +91,14 @@ class OpenPakageViewController: UIViewController {
         }
         if (recongnizer.state == UIGestureRecognizerState.Ended) {
             if (!isLocationInView(location, self.dragDestination)) {
-                dragingImageView!.removeFromSuperview()
-                dragingImageView = nil
+                if (dragingImageView != nil) {
+                    dragingImageView!.removeFromSuperview()
+                    dragingImageView = nil
+                }
             }
             else {
                 self.prepareOpenPack()
+                self.menuBar.subviews[0].hidden = true
                 dragingImageView!.frame = self.dragDestination.frame
                 UIView.animateWithDuration(3, animations: { () -> Void in
                     self.dragingImageView!.hidden = true
@@ -71,8 +113,13 @@ class OpenPakageViewController: UIViewController {
     }
     
     func prepareOpenPack() {
+        switch(cardSet!) {
+        case(ParsingCardsData.CLASSIC): packStats[0]++
+        case(ParsingCardsData.GVG): packStats[1]++
+        default: packStats[2]++
+        }
         self.view.gestureRecognizers![0].enabled = false
-        var set = ParsingCardsData.getCardsForCardSet(ParsingCardsData.TOURNAMENT)!
+        var set = ParsingCardsData.getCardsForCardSet(cardSet!)!
         set = ParsingCardsData.getCollectibleCards(set)
         let common = ParsingCardsData.getCardsWithRarity(ParsingCardsData.RARITY_COMMON, set)
         let rare = ParsingCardsData.getCardsWithRarity(ParsingCardsData.RARITY_RARE, set)
@@ -83,7 +130,7 @@ class OpenPakageViewController: UIViewController {
             let imageView = UIImageView(frame: self.dragDestination.frame)
             imageView.image = UIImage(named: "cardBack")
             self.view.addSubview(imageView)
-            let index = self.card.indexOf(cardView)!
+            let index = self.card.indexOfObject(cardView)
             let delay = Double(index) * 0.1
             UIView.animateWithDuration(0.1, delay: delay, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: { () -> Void in
                 imageView.center = cardView.center
@@ -126,7 +173,7 @@ class OpenPakageViewController: UIViewController {
                 let imageUrlString = card.1 ? info[ParsingCardsData.IMAGE_GOLD] : info[ParsingCardsData.IMAGE]
                 let url = NSURL(string: imageUrlString as! String)
                 let imageData = NSData(contentsOfURL: url!)
-                let image = UIImage(data: imageData!)
+                let image = UIImage.animatedImageWithAnimatedGIFData(imageData!)
                 local.append(image!)
             }
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -166,7 +213,7 @@ class OpenPakageViewController: UIViewController {
                     }
                 }
                 else {
-                    
+                    //
                 }
             }
         }
@@ -174,6 +221,7 @@ class OpenPakageViewController: UIViewController {
     
     func dismiss(sender: UIButton) {
         sender.removeFromSuperview()
+        self.menuBar.subviews[0].hidden = false
         for view in imageDisplayViews {
             view.removeFromSuperview()
         }
@@ -196,6 +244,82 @@ class OpenPakageViewController: UIViewController {
         return false
     }
     
+    @IBAction func selectCardSet(sender: UIButton) {
+        if (sender.titleLabel?.text == "Card Set") {
+            self.view.bringSubviewToFront(self.menuBar)
+            self.menuBarHeight.constant -= 20 + self.packageHolder.frame.size.height
+            self.view.gestureRecognizers![0].enabled = false
+            sender.setTitle("Hide", forState: .Normal)
+        }
+        else {
+            self.removePackViews()
+            self.view.sendSubviewToBack(self.menuBar)
+            self.menuBarHeight.constant = 20
+            sender.setTitle("Card Set", forState: .Normal)
+            self.view.gestureRecognizers![0].enabled = true
+        }
+        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: [], animations: { () -> Void in
+            self.view.layoutIfNeeded()
+            }) { (complete) -> Void in
+                if (complete) {
+                    if (sender.titleLabel?.text == "Hide") {
+                        self.addPackViews()
+                    }
+                }
+        }
+    }
+    
+    var packViewsInMenuBar: [UIImageView]? = []
+    func addPackViews() {
+        var origin = self.menuBar.bounds.origin
+        let width = self.packageHolder.frame.size.width
+        let height = self.packageHolder.frame.size.height
+        origin.y = origin.y + self.menuBar.bounds.size.height - height
+        let frame1 = CGRect(x: origin.x, y: origin.y, width: width, height: height)
+        var frame2 = frame1, frame3 = frame1
+        frame2.origin.x += width * 1.1
+        frame3.origin.x += width * 1.1 + width * 1.1
+        let view1 = UIImageView(frame: frame1)
+        let view2 = UIImageView(frame: frame2)
+        let view3 = UIImageView(frame: frame3)
+        view1.image = UIImage(named: "classicPack")
+        view2.image = UIImage(named: "gvgPack")
+        view3.image = UIImage(named: "touPack")
+        packViewsInMenuBar?.appendContentsOf([view1, view2, view3])
+        for view in packViewsInMenuBar! {
+            view.layer.cornerRadius = width * 0.1
+            view.layer.masksToBounds = true
+            self.menuBar.addSubview(view)
+        }
+        let tapGes = UITapGestureRecognizer(target: self, action: Selector("tapInMenuBar:"))
+        self.menuBar.addGestureRecognizer(tapGes)
+    }
+    func removePackViews() {
+        for view in packViewsInMenuBar! {
+            view.removeFromSuperview()
+        }
+        packViewsInMenuBar?.removeAll()
+    }
+    func tapInMenuBar(sender: UITapGestureRecognizer) {
+        let location = sender.locationInView(self.menuBar)
+        for setView in packViewsInMenuBar! {
+            if (isLocationInView(location, setView)) {
+                let index = packViewsInMenuBar?.indexOf(setView)
+                switch (index!) {
+                case(1): cardSet = ParsingCardsData.GVG
+                case(2): cardSet = ParsingCardsData.TOURNAMENT
+                default: cardSet = ParsingCardsData.CLASSIC
+                }
+                removePackViews()
+            }
+        }
+        for view in self.menuBar.subviews {
+            if (view.isKindOfClass(UIButton.self)) {
+                let button = view as! UIButton
+                selectCardSet(button)
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 
