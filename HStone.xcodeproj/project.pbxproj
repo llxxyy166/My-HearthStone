@@ -17,6 +17,8 @@
 		3964AD781C7154EF0058E302 /* HearthStoneAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964AD771C7154EF0058E302 /* HearthStoneAPI.swift */; };
 		3964AD7E1C715EF40058E302 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964AD7D1C715EF40058E302 /* CardDetailViewController.swift */; };
 		3964AD801C7179DE0058E302 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3964AD7F1C7179DE0058E302 /* Default-568h@2x.png */; };
+		396FF79E1C7AA93E00BF1979 /* CardsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396FF79D1C7AA93E00BF1979 /* CardsCollectionViewController.swift */; };
+		396FF7A01C7ABE8200BF1979 /* CardDisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396FF79F1C7ABE8200BF1979 /* CardDisplayCell.swift */; };
 		39FA46571C78FC62006C1936 /* DataParsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA46561C78FC62006C1936 /* DataParsingTest.swift */; };
 		39FA46611C78FF6B006C1936 /* ParsingCardsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA46601C78FF6B006C1936 /* ParsingCardsData.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +48,8 @@
 		3964AD771C7154EF0058E302 /* HearthStoneAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearthStoneAPI.swift; sourceTree = "<group>"; };
 		3964AD7D1C715EF40058E302 /* CardDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 		3964AD7F1C7179DE0058E302 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		396FF79D1C7AA93E00BF1979 /* CardsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewController.swift; sourceTree = "<group>"; };
+		396FF79F1C7ABE8200BF1979 /* CardDisplayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDisplayCell.swift; sourceTree = "<group>"; };
 		39FA46541C78FC62006C1936 /* DataParsingTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataParsingTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39FA46561C78FC62006C1936 /* DataParsingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParsingTest.swift; sourceTree = "<group>"; };
 		39FA46581C78FC62006C1936 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 				3964AD771C7154EF0058E302 /* HearthStoneAPI.swift */,
 				3964AD7D1C715EF40058E302 /* CardDetailViewController.swift */,
 				391EF5001C7647B500917972 /* OpenPakageViewController.swift */,
+				396FF79D1C7AA93E00BF1979 /* CardsCollectionViewController.swift */,
+				396FF79F1C7ABE8200BF1979 /* CardDisplayCell.swift */,
 				39FA46601C78FF6B006C1936 /* ParsingCardsData.swift */,
 				3964AD691C71549E0058E302 /* Main.storyboard */,
 				3964AD6C1C71549E0058E302 /* Assets.xcassets */,
@@ -221,12 +227,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				396FF7A01C7ABE8200BF1979 /* CardDisplayCell.swift in Sources */,
 				39FA46611C78FF6B006C1936 /* ParsingCardsData.swift in Sources */,
 				3964AD781C7154EF0058E302 /* HearthStoneAPI.swift in Sources */,
 				391EF4FD1C76470B00917972 /* UIImage+animatedGIF.m in Sources */,
 				3964AD7E1C715EF40058E302 /* CardDetailViewController.swift in Sources */,
 				391EF5011C7647B500917972 /* OpenPakageViewController.swift in Sources */,
 				3964AD661C71549D0058E302 /* AppDelegate.swift in Sources */,
+				396FF79E1C7AA93E00BF1979 /* CardsCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +440,7 @@
 				39FA465D1C78FC62006C1936 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

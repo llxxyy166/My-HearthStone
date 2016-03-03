@@ -10,7 +10,7 @@ import Foundation
 
 
 class ParsingCardsData {
-    
+    static let CARDSET = "cardSet"
     static let BLACKROCK_MOUNTAIN = "Blackrock Mountain"
     static let PROMOTION = "Promotion"
     static let CREDITS = "Credits"
@@ -48,6 +48,7 @@ class ParsingCardsData {
     static let PLAYERCLASS_WARRIOR = "Warrior"
     static let PLAYERCLASS_DRUID = "Druid"
     static let PLAYERCLASS_ROGUE = "Rogue"
+    static let PLAYERCLASS_NONE = "None"
     
     static let IMAGE = "img"
     static let IMAGE_GOLD = "imgGold"
@@ -103,15 +104,73 @@ class ParsingCardsData {
         return res
     }
     
-    static func getCardsWithPlayerClass(playerClass: String, _ cardSet: NSArray) -> NSArray {
-        let res = NSMutableArray();
-        for card in cardSet {
+    
+    static func getAllCollectibleCards() -> NSArray {
+        let dic = getAllCardsDic()
+        let res = NSMutableArray()
+        let keyArray = dic.allKeys
+        for key in keyArray {
+            let cardSet = dic[key as! String] as? NSArray
+            if (cardSet != nil) {
+                for card in cardSet! {
+                    let cardDic = card as! NSDictionary
+                    if (cardDic[COLLECTIBLE] != nil && cardDic[COLLECTIBLE] as! Int == 1) {
+                        if (cardDic[COST] != nil) {
+                            res.addObject(cardDic)
+                        }
+                    }
+                }
+            }
+        }
+        return getCollectibleCards(res)
+    }
+    
+    static func filtByClass(playerClass: String, _ cardsArray: NSArray) -> NSArray {
+        let res = NSMutableArray()
+        for card in cardsArray {
             let cardDic = card as! NSDictionary
-            if (cardDic[PLAYERCLASS] != nil && cardDic[PLAYERCLASS] as! String == playerClass) {
-                res.addObject(card)
+            if (playerClass != PLAYERCLASS_NONE) {
+                if (cardDic[PLAYERCLASS] != nil  && cardDic[PLAYERCLASS] as! String == playerClass) {
+                    res.addObject(cardDic)
+                }
+            }
+            else {
+                if (cardDic[PLAYERCLASS] == nil) {
+                    res.addObject(cardDic)
+                }
             }
         }
         return res
     }
+    
+    static func filtByCost(cost: Int, _ cardsArray: NSArray) -> NSArray {
+        let res = NSMutableArray()
+        for card in cardsArray {
+            let cardDic = card as! NSDictionary
+            if (cost <= 7) {
+                if (cardDic[COST] != nil  && cardDic[COST] as! Int == cost) {
+                    res.addObject(cardDic)
+                }
+            }
+            else {
+                if (cardDic[COST] != nil  && cardDic[COST] as! Int >= cost) {
+                    res.addObject(cardDic)
+                }
+            }
+        }
+        return res
+    }
+    
+    static func filtByRarity(rarity: String, _ cardsArray: NSArray) -> NSArray {
+        let res = NSMutableArray()
+        for card in cardsArray {
+            let cardDic = card as! NSDictionary
+            if (cardDic[RARITY] != nil && cardDic[RARITY] as! String == rarity) {
+                res.addObject(cardDic)
+            }
+        }
+        return res
+    }
+    
     
 }

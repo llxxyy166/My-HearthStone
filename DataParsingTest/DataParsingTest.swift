@@ -12,9 +12,9 @@ import XCTest
 class DataParsingTest: XCTestCase {
     
     func test1() {
-        let allCardsDic = ParsingCardsData.getCardsForCardSet(ParsingCardsData.CLASSIC)
-        let res = ParsingCardsData.getCollectibleCards(allCardsDic!)
-        print(res)
+        let allCardsDic = ParsingCardsData.getAllCollectibleCards()
+        //let res = ParsingCardsData.getCollectibleCards(allCardsDic!)
+        print(allCardsDic)
     }
     
     override func setUp() {
